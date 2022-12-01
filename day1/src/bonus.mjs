@@ -6,22 +6,22 @@ async function main() {
     encoding: "utf8",
   });
 
-  const topCaloriesByElve = input.split("\n\n").map((rawStrings) =>
+  const topCaloriesByElf = input.split("\n\n").map((rawStrings) =>
     rawStrings
       .split("\n")
       .map((numberString) => parseInt(numberString, 10))
       .reduce((prev, curr) => prev + curr, 0)
   );
 
-  topCaloriesByElve.sort((a, b) => a - b).reverse();
+  topCaloriesByElf.sort((a, b) => a - b).reverse();
 
   console.log(
-    `#1: ${topCaloriesByElve[0]} calories - #2: ${topCaloriesByElve[1]} calories - #3: ${topCaloriesByElve[2]} calories`
+    `#1: ${topCaloriesByElf[0]} calories - #2: ${topCaloriesByElf[1]} calories - #3: ${topCaloriesByElf[2]} calories`
   );
 
   console.log(
     `total: ${
-      topCaloriesByElve[0] + topCaloriesByElve[1] + topCaloriesByElve[2]
+      topCaloriesByElf[0] + topCaloriesByElf[1] + topCaloriesByElf[2]
     } calories`
   );
 }

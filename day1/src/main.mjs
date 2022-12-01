@@ -6,15 +6,15 @@ async function main() {
     encoding: "utf8",
   });
 
-  const caloriesByElve = input.split("\n\n").map((rawStrings) =>
+  const caloriesByElf = input.split("\n\n").map((rawStrings) =>
     rawStrings
       .split("\n")
       .map((numberString) => parseInt(numberString, 10))
       .reduce((prev, curr) => prev + curr, 0)
   );
 
-  const maxCalories = Math.max(...caloriesByElve);
-  const elveCarryingMaxCalories = caloriesByElve.indexOf(maxCalories);
+  const maxCalories = Math.max(...caloriesByElf);
+  const elveCarryingMaxCalories = caloriesByElf.indexOf(maxCalories);
 
   console.log(
     `Elve #${elveCarryingMaxCalories} carries ${maxCalories} calories`
