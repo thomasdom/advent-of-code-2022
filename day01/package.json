@@ -1,7 +1,7 @@
 {
-  "name": "aoc-22-day1",
+  "name": "aoc-22-day01",
   "version": "1.0.0",
-  "description": "AoC 2022 Day 1",
+  "description": "AoC 2022 Day 01",
   "main": "src/main.mjs",
   "scripts": {
     "bonus": "node src/bonus.mjs",
