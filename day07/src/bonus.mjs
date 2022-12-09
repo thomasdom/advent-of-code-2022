@@ -46,7 +46,9 @@ async function main() {
   }
 
   const currentlyAvailableSpace = 70000000n - fileSystem['/'];
-  const sizeOfSmallestDirectoryToDelete = min(Object.values(fileSystem).filter((size) => currentlyAvailableSpace + size >= 30000000n));
+  const sizeOfSmallestDirectoryToDelete = min(
+    Object.values(fileSystem).filter((size) => currentlyAvailableSpace + size >= 30000000n)
+  );
   console.log(
     `The smallest directory to delete to be able to upgrade the system is of size ${sizeOfSmallestDirectoryToDelete}.`
   );
