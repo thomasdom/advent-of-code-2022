@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { EOL } from 'node:os';
 import { resolve } from 'node:path';
-import {compact, concat, dropRight, initial, last, tail, takeRight, trim, zip} from 'lodash-es';
+import { compact, concat, dropRight, initial, last, tail, takeRight, trim, zip } from 'lodash-es';
 
 async function main() {
   const input = await readFile(resolve('input/stacks.txt'), {
