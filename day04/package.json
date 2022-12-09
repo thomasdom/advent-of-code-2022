@@ -1,0 +1,16 @@
+{
+  "name": "aoc-22-dayxx",
+  "version": "1.0.0",
+  "description": "AoC 2022 Day 02",
+  "main": "src/main.mjs",
+  "scripts": {
+    "bonus": "node src/bonus.mjs",
+    "start": "node src/main.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Domingues <thomasdom@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
+}
