@@ -1,14 +1,14 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 async function main() {
-  const input = await readFile(resolve("input/calories.txt"), {
-    encoding: "utf8",
+  const input = await readFile(resolve('input/calories.txt'), {
+    encoding: 'utf8',
   });
 
-  const caloriesByElf = input.split("\n\n").map((rawStrings) =>
+  const caloriesByElf = input.split('\n\n').map((rawStrings) =>
     rawStrings
-      .split("\n")
+      .split('\n')
       .map((numberString) => parseInt(numberString, 10))
       .reduce((prev, curr) => prev + curr, 0)
   );
@@ -16,9 +16,7 @@ async function main() {
   const maxCalories = Math.max(...caloriesByElf);
   const elveCarryingMaxCalories = caloriesByElf.indexOf(maxCalories);
 
-  console.log(
-    `Elve #${elveCarryingMaxCalories} carries ${maxCalories} calories`
-  );
+  console.log(`Elve #${elveCarryingMaxCalories} carries ${maxCalories} calories`);
 }
 
 main().catch(console.error);

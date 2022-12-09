@@ -1,0 +1,27 @@
+{
+  "name": "advent-of-code-2022",
+  "description": "My personal submissions to the Advent of Code 2022",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasdom/advent-of-code-2022.git"
+  },
+  "scripts": {
+    "lint": "prettier --write ."
+  },
+  "keywords": [
+    "advent",
+    "code",
+    "2022",
+    "js"
+  ],
+  "author": "Thomas Domingues <thomasdom@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasdom/advent-of-code-2022/issues"
+  },
+  "homepage": "https://github.com/thomasdom/advent-of-code-2022#readme",
+  "devDependencies": {
+    "prettier": "^2.8.1"
+  }
+}
