@@ -21,14 +21,14 @@ async function main() {
     } else {
       process.stdout.write('.');
     }
-    if (currentCycle % 40 === 0) {
+    if (currentCycle % 40 === 39) {
       process.stdout.write(EOL);
     }
   }
 
   while (instructionPointer < instructions.length || operation) {
-    currentCycle++;
     printScreen();
+    currentCycle++;
     if (/^noop$/.test(instructions[instructionPointer]) && !operation) {
       instructionPointer++;
       continue;
