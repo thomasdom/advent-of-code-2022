@@ -5,14 +5,26 @@ import { resolve } from 'node:path';
 const visitedPositions = {
   '0;0': 1,
 };
-const headPosition = { x: 0, y: 0 };
-const tailPosition = { x: 0, y: 0 };
+
+const rope = [
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+  { x: 0, y: 0 },
+];
 
 function registerTailPosition() {
-  `${tailPosition.x};${tailPosition.y}` in visitedPositions
-    ? visitedPositions[`${tailPosition.x};${tailPosition.y}`]++
-    : (visitedPositions[`${tailPosition.x};${tailPosition.y}`] = 1);
+  `${rope[rope.length - 1].x};${rope[rope.length - 1].y}` in visitedPositions
+    ? visitedPositions[`${rope[rope.length - 1].x};${rope[rope.length - 1].y}`]++
+    : (visitedPositions[`${rope[rope.length - 1].x};${rope[rope.length - 1].y}`] = 1);
 }
+
 async function main() {
   const input = await readFile(resolve('input/moves.txt'), {
     encoding: 'utf8',
@@ -27,40 +39,56 @@ async function main() {
     switch (direction) {
       case 'U':
         for (let i = 0; i < steps; ++i) {
-          headPosition.y += 1;
-          if (Math.abs(headPosition.y - tailPosition.y) >= 2) {
-            tailPosition.x = headPosition.x;
-            tailPosition.y = headPosition.y - 1;
+          rope[0].y += 1
+          for (let a = 0; a < rope.length - 1; ++a) {
+            const headPosition = rope[a];
+            const tailPosition = rope[a + 1];
+            if (Math.abs(headPosition.y - tailPosition.y) >= 2) {
+              tailPosition.x = headPosition.x;
+              tailPosition.y = headPosition.y - 1;
+            }
           }
           registerTailPosition();
         }
         break;
       case 'D':
         for (let i = 0; i < steps; ++i) {
-          headPosition.y -= 1;
-          if (Math.abs(headPosition.y - tailPosition.y) >= 2) {
-            tailPosition.x = headPosition.x;
-            tailPosition.y = headPosition.y + 1;
+          rope[0].y -= 1;
+          for (let a = 0; a < rope.length - 1; ++a) {
+            const headPosition = rope[a];
+            const tailPosition = rope[a + 1];
+            if (Math.abs(headPosition.y - tailPosition.y) >= 2) {
+              tailPosition.x = headPosition.x;
+              tailPosition.y = headPosition.y + 1;
+            }
           }
           registerTailPosition();
         }
         break;
       case 'L':
         for (let i = 0; i < steps; ++i) {
-          headPosition.x -= 1;
-          if (Math.abs(headPosition.x - tailPosition.x) >= 2) {
-            tailPosition.y = headPosition.y;
-            tailPosition.x = headPosition.x + 1;
+          rope[0].x -= 1;
+          for (let a = 0; a < rope.length - 1; ++a) {
+            const headPosition = rope[a];
+            const tailPosition = rope[a + 1];
+            if (Math.abs(headPosition.x - tailPosition.x) >= 2) {
+              tailPosition.y = headPosition.y;
+              tailPosition.x = headPosition.x + 1;
+            }
           }
           registerTailPosition();
         }
         break;
       case 'R':
         for (let i = 0; i < steps; ++i) {
-          headPosition.x += 1;
-          if (Math.abs(headPosition.x - tailPosition.x) >= 2) {
-            tailPosition.y = headPosition.y;
-            tailPosition.x = headPosition.x - 1;
+          rope[0].x += 1;
+          for (let a = 0; a < rope.length - 1; ++a) {
+            const headPosition = rope[a];
+            const tailPosition = rope[a + 1];
+            if (Math.abs(headPosition.x - tailPosition.x) >= 2) {
+              tailPosition.y = headPosition.y;
+              tailPosition.x = headPosition.x - 1;
+            }
           }
           registerTailPosition();
         }
